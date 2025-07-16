@@ -1,66 +1,90 @@
-# 🎯 Customer Segmentation Using K-Means Clustering
 
-A complete machine learning project to segment customers using unsupervised learning and extract actionable business insights from raw customer data.
+# 📊 Promotion Prediction using Machine Learning
 
-
-
- 📌 Problem Statement
-
-Businesses often waste marketing budgets by treating all customers equally. The goal is to segment customers based on their demographics and purchasing behavior, identify high-value groups, and create targeted strategies.
+This project predicts whether an employee will be promoted or not, based on historical HR data. The notebook includes full **EDA**, **preprocessing**, and **machine learning model building**, with a focus on Random Forest and Logistic Regression models. The final models are saved using `joblib` for future deployment or integration.
 
 ---
 
-## 🧠 ML Solution
+## 🔧 Technologies Used
 
-Using the **KMeans Clustering algorithm**, we segmented the customers into 5 distinct groups using:
-
-- Age
-- Annual Income
-- Spending Score
-- Gender (one-hot encoded)
-
-After performing Elbow Method analysis, **K=5** was found to be optimal.
+- Python
+- Pandas, NumPy
+- Seaborn, Matplotlib
+- Scikit-learn
+- Joblib
 
 ---
 
-## 📊 Dataset Features
+## 📁 Dataset
 
-| Feature         | Description                        |
-|----------------|------------------------------------|
-| Gender          | Male/Female (One-hot encoded)     |
-| Age             | Customer's age                    |
-| Annual Income   | Income in thousands ($k)          |
-| Spending Score  | Based on purchasing activity      |
-| Target          | Business-labeled target customer  |
-
-📁 Dataset: `data/target_customers.csv`
-
----
-
-## 🔍 Cluster Summary & Target Insights
-
-| Cluster | Profile Summary                    | Target % | Action Plan                       |
-|---------|-------------------------------------|----------|-----------------------------------|
-| 0       | High income, low spending           | 100% ✅  | Upsell premium services           |
-| 1       | Young, high spenders                | ~        | Loyalty rewards                   |
-| 2       | Low income, low spending            | ~        | Low marketing focus               |
-| 3       | Older, moderate spenders            | 0% ❌   | Exclude from campaigns            |
-| 4       | Balanced earners                    | ~        | Retention strategies              |
+The dataset used is:
+- `clustered_dataset.csv` (likely from a Kaggle source)
+- Contains HR-related features such as:
+  - Employee department
+  - Previous year rating
+  - Education
+  - KPIs met
+  - Awards won
+  - Avg training hours
 
 ---
 
-## 📈 Visualizations
+## 📌 Project Structure
 
-- Elbow plot to determine optimal clusters  
-- Cluster distribution scatter plots  
-- Target mapping per cluster
+| Section         | Description                                                    |
+|----------------|----------------------------------------------------------------|
+| ✅ EDA          | Null values, shape, datatype analysis, feature exploration     |
+| 📉 Visualization| Distribution plots, correlation matrix, and feature-target relationships |
+| ⚙️ Preprocessing | Label Encoding, Feature Engineering                           |
+| 🤖 Model Training | Trained **Random Forest** and **Logistic Regression** models  |
+| 💾 Model Saving | Models saved using `joblib`                                    |
+| 📊 Evaluation   | Accuracy, confusion matrix, and classification report         |
 
 ---
 
-## 🛠️ Tech Stack
+## 📦 How to Run the Project
 
-- `Python`
-- `Pandas`, `NumPy`
-- `Scikit-learn` (KMeans)
-- `Matplotlib`, `Seaborn`
+1. Clone the repository:
 
+```bash
+git clone https://github.com/faizan-haider-AI/Employee-Promotion-Prediction
+cd promotion-prediction
+```
+
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the notebook:
+
+```bash
+jupyter notebook promotion-prediction.ipynb
+```
+
+4. The trained models will be saved as:
+
+```
+random_forest_model.pkl
+logistic_regression_model.pkl
+```
+
+---
+
+## 📈 Model Performance
+
+Evaluate both models using `accuracy_score`, `confusion_matrix`, and other classification metrics. Choose the best model based on:
+
+- Accuracy
+- Precision/Recall
+- Business context (e.g. promotion fairness, interpretability)
+
+---
+
+## ✅ Example Output
+
+```python
+Random Forest Accuracy: 0.95
+Logistic Regression Accuracy: 0.89
+```
